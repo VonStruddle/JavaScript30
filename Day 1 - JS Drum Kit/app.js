@@ -16,7 +16,5 @@ function removeStyling(e) {
 }
 
 const keys = document.getElementsByClassName('keys')[0].children;
-console.log(keys);
 
 keys.forEach(addEventListener('keydown', toggleKey));
-

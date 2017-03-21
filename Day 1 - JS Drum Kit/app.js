@@ -7,14 +7,18 @@ function toggleKey(e) {
     }
 
     key.classList.add('playing');
+    audio.currentTime = 0;
     audio.play();
     key.addEventListener('transitionend', removeStyling);
 }
 
 function removeStyling(e) {
+    if (e.propertyName !== 'transform') {
+        return null;
+    }
+
     this.classList.remove('playing');
 }
 
 const keys = document.getElementsByClassName('keys')[0].children;
-
 keys.forEach(addEventListener('keydown', toggleKey));
